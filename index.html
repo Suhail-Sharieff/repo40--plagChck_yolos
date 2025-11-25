@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Interface</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <header>
+            <h1>Live Feed</h1>
+            <p>Secure connection established</p>
+        </header>
+
+        <div class="video-wrapper">
+            <video id="webcam" autoplay playsinline muted></video>
+            <div class="video-overlay">
+                <div class="recording-indicator">
+                    <span class="dot"></span> REC
+                </div>
+            </div>
+            <div id="camera-error" class="hidden">
+                <p>Camera access required to view feed.</p>
+            </div>
+        </div>
+
+        <div class="input-wrapper">
+            <input type="text" id="user-input" placeholder="Type your message here..." autocomplete="off">
+            <button id="send-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="proctoring-panel">
+        <div id="alert-container" class="alert-container"></div>
+
+        <div class="plagiarism-section">
+            <h3>Code Integrity Check</h3>
+            <button id="check-plagiarism-btn" class="secondary-btn">Check Plagiarism</button>
+            <div id="plagiarism-result" class="hidden"></div>
+        </div>
+    </div>
+
+    <!-- TensorFlow.js and COCO-SSD -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/face-landmarks-detection"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
